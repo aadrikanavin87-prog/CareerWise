@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareerWise | Career Recommendation</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>CareerWise</h1>
+
+        <p class="subtitle">
+            Understand Yourself. Discover Your Career. Build Your Future.
+        </p>
+
+        <div class="form-card">
+
+            <h2>Build Your Student Profile</h2>
+
+            <p>Tell us about your education, skills and interests.</p>
+
+            <form action="/recommend" method="POST">
+
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name"
+                       placeholder="Enter your name" required>
+
+                <label for="degree">Degree</label>
+                <select id="degree" name="degree" required>
+                    <option value="">Select degree</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="BCA">BCA</option>
+                    <option value="MCA">MCA</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="branch">Branch</label>
+                <select id="branch" name="branch" required>
+                    <option value="">Select branch</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="IT">Information Technology</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="interests">Your Interests</label>
+                <select id="interests" name="interests" required>
+
+                    <option value="">Select your main interest</option>
+                    <option value="Data Analysis">Data Analysis</option>
+                    <option value="Artificial Intelligence">Artificial Intelligence</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Backend Development">Backend Development</option>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                    <option value="Software Development">Software Development</option>
+                    <option value="Cloud Computing">Cloud Computing</option>
+                    <option value="DevOps">DevOps</option>
+                    <option value="UI/UX Design">UI/UX Design</option>
+                    <option value="Mobile App Development">Mobile App Development</option>
+                    <option value="Game Development">Game Development</option>
+                    <option value="Database Administration">Database Administration</option>
+                    <option value="Business Analytics">Business Analytics</option>
+                    <option value="Software Testing">Software Testing</option>
+                    <option value="Networking">Networking</option>
+
+                </select>
+
+                <h3>Rate Your Current Skills</h3>
+                <p class="hint">1 = Beginner, 5 = Advanced</p>
+
+                <div id="skill-questions">
+                   <p>Please select a career interest first.</p>
+                </div>
+
+                <label for="python">Python</label>
+                <select id="python" name="python" required>
+                    <option value="1">1 - Beginner</option>
+                    <option value="2">2 - Basic</option>
+                    <option value="3" selected>3 - Intermediate</option>
+                    <option value="4">4 - Good</option>
+                    <option value="5">5 - Advanced</option>
+                </select>
+
+                <label for="sql">SQL</label>
+                <select id="sql" name="sql" required>
+                    <option value="1">1 - Beginner</option>
+                    <option value="2">2 - Basic</option>
+                    <option value="3" selected>3 - Intermediate</option>
+                    <option value="4">4 - Good</option>
+                    <option value="5">5 - Advanced</option>
+                </select>
+
+                <label for="web">HTML, CSS and JavaScript</label>
+                <select id="web" name="web" required>
+                    <option value="1">1 - Beginner</option>
+                    <option value="2">2 - Basic</option>
+                    <option value="3" selected>3 - Intermediate</option>
+                    <option value="4">4 - Good</option>
+                    <option value="5">5 - Advanced</option>
+                </select>
+
+                <label for="statistics">Statistics</label>
+                <select id="statistics" name="statistics" required>
+                    <option value="1">1 - Beginner</option>
+                    <option value="2">2 - Basic</option>
+                    <option value="3" selected>3 - Intermediate</option>
+                    <option value="4">4 - Good</option>
+                    <option value="5">5 - Advanced</option>
+                </select>
+
+                <label for="problem_solving">Problem Solving</label>
+                <select id="problem_solving" name="problem_solving" required>
+                    <option value="1">1 - Beginner</option>
+                    <option value="2">2 - Basic</option>
+                    <option value="3" selected>3 - Intermediate</option>
+                    <option value="4">4 - Good</option>
+                    <option value="5">5 - Advanced</option>
+                </select>
+
+                <label for="hours">Weekly Learning Hours</label>
+                <input type="number" id="hours" name="hours"
+                       min="1" max="80" value="8" required>
+
+                <button type="submit">Find My Career</button>
+
+            </form>
+
+        </div>
+
+    </div>
+       <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

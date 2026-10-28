@@ -1,0 +1,183 @@
+
+[
+  {
+    "name": "Data Analyst",
+    "interest": "Data Analysis",
+    "skills": {
+      "python": 3,
+      "sql": 4,
+      "statistics": 4,
+      "excel": 4,
+      "data_visualization": 3
+    },
+    "description": "Analyzes data to discover useful patterns and insights."
+  },
+  {
+    "name": "AI/ML Engineer",
+    "interest": "Artificial Intelligence",
+    "skills": {
+      "python": 5,
+      "mathematics": 5,
+      "statistics": 4,
+      "machine_learning": 5,
+      "problem_solving": 5
+    },
+    "description": "Builds intelligent systems using data and machine learning."
+  },
+  {
+    "name": "Web Developer",
+    "interest": "Web Development",
+    "skills": {
+      "html_css": 5,
+      "javascript": 5,
+      "web": 5,
+      "sql": 2,
+      "problem_solving": 3
+    },
+    "description": "Creates websites and interactive web applications."
+  },
+  {
+    "name": "Backend Developer",
+    "interest": "Backend Development",
+    "skills": {
+      "python": 4,
+      "sql": 5,
+      "api_development": 4,
+      "databases": 4,
+      "problem_solving": 4
+    },
+    "description": "Develops server-side logic, APIs and database operations."
+  },
+  {
+    "name": "Cybersecurity Analyst",
+    "interest": "Cybersecurity",
+    "skills": {
+      "networking": 4,
+      "linux": 4,
+      "cybersecurity": 5,
+      "python": 3,
+      "problem_solving": 5
+    },
+    "description": "Helps detect security threats and protect computer systems."
+  },
+  {
+    "name": "Software Developer",
+    "interest": "Software Development",
+    "skills": {
+      "programming": 5,
+      "data_structures": 5,
+      "oop": 4,
+      "debugging": 4,
+      "problem_solving": 5
+    },
+    "description": "Designs, develops and maintains software applications."
+  },
+  {
+    "name": "Cloud Engineer",
+    "interest": "Cloud Computing",
+    "skills": {
+      "cloud": 5,
+      "linux": 4,
+      "networking": 4,
+      "python": 3,
+      "problem_solving": 5
+    },
+    "description": "Builds and manages cloud infrastructure and services."
+  },
+  {
+    "name": "DevOps Engineer",
+    "interest": "DevOps",
+    "skills": {
+      "linux": 4,
+      "git": 4,
+      "automation": 5,
+      "cloud": 4,
+      "problem_solving": 5
+    },
+    "description": "Automates software delivery and manages deployment workflows."
+  },
+  {
+    "name": "UI/UX Designer",
+    "interest": "UI/UX Design",
+    "skills": {
+      "design": 5,
+      "wireframing": 5,
+      "prototyping": 4,
+      "user_research": 4,
+      "problem_solving": 3
+    },
+    "description": "Designs user-friendly interfaces and improves user experiences."
+  },
+  {
+    "name": "Mobile App Developer",
+    "interest": "Mobile App Development",
+    "skills": {
+      "programming": 4,
+      "mobile_development": 5,
+      "api_development": 3,
+      "databases": 3,
+      "problem_solving": 5
+    },
+    "description": "Creates applications for mobile devices."
+  },
+  {
+    "name": "Game Developer",
+    "interest": "Game Development",
+    "skills": {
+      "programming": 5,
+      "game_design": 4,
+      "mathematics": 3,
+      "debugging": 4,
+      "problem_solving": 5
+    },
+    "description": "Develops game mechanics, interactive features and gameplay systems."
+  },
+  {
+    "name": "Database Administrator",
+    "interest": "Database Administration",
+    "skills": {
+      "sql": 5,
+      "databases": 5,
+      "database_security": 4,
+      "backup_recovery": 4,
+      "problem_solving": 4
+    },
+    "description": "Maintains databases, data integrity, security and performance."
+  },
+  {
+    "name": "Business Analyst",
+    "interest": "Business Analytics",
+    "skills": {
+      "sql": 4,
+      "statistics": 5,
+      "excel": 5,
+      "data_visualization": 4,
+      "communication": 4
+    },
+    "description": "Uses data and business requirements to support decisions."
+  },
+  {
+    "name": "Software Test Engineer",
+    "interest": "Software Testing",
+    "skills": {
+      "testing": 5,
+      "debugging": 4,
+      "automation": 4,
+      "programming": 3,
+      "problem_solving": 5
+    },
+    "description": "Tests applications to identify defects and improve quality."
+  },
+  {
+    "name": "Network Engineer",
+    "interest": "Networking",
+    "skills": {
+      "networking": 5,
+      "linux": 3,
+      "network_security": 4,
+      "troubleshooting": 5,
+      "problem_solving": 5
+    },
+    "description": "Configures, monitors and troubleshoots computer networks."
+  }
+]

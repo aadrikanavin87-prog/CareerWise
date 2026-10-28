@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareerWise | Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2 class="brand">✦ CareerWise</h2>
+
+        <p class="sidebar-label">MENU</p>
+
+        <a href="#overview" class="nav-link active">
+            ▦ Dashboard
+        </a>
+
+        <a href="#careers" class="nav-link">
+            ◎ Career Matches
+        </a>
+
+        <a href="#skills" class="nav-link">
+            ◇ Skill Gaps
+        </a>
+
+        <a href="/" class="nav-link">
+            ＋ New Assessment
+        </a>
+
+        <div class="sidebar-footer">
+            Discover your potential.<br>
+            Build your future. ✨
+        </div>
+    </aside>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-main">
+
+        <!-- Dashboard Header -->
+        <header class="dashboard-header" id="overview">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL CAREER SPACE</p>
+
+                <h1>Hello, {{ student.name }}! 👋</h1>
+
+                <p class="muted">
+                    Here is your personalized career assessment.
+                </p>
+            </div>
+
+            <a href="/" class="secondary-button">
+                Retake Assessment
+            </a>
+        </header>
+
+        {% if recommendations %}
+
+        {% set top = recommendations[0] %}
+
+        <!-- Summary Cards -->
+        <section class="summary-grid">
+
+            <div class="summary-card">
+                <p>Top Career Match</p>
+                <h2>{{ top.name }}</h2>
+                <span>Your highest-ranked career</span>
+            </div>
+
+            <div class="summary-card">
+                <p>Compatibility Score</p>
+                <h2>{{ top.score }}%</h2>
+                <span>Based on your current profile</span>
+            </div>
+
+            <div class="summary-card">
+                <p>Careers Compared</p>
+                <h2>{{ recommendations|length }}</h2>
+                <span>Career profiles evaluated</span>
+            </div>
+
+            <div class="summary-card">
+                <p>Skills to Improve</p>
+                <h2>
+                    {% set ns = namespace(count=0) %}
+                    {% for gap in top.gaps %}
+                        {% set ns.count = ns.count + 1 %}
+                    {% endfor %}
+                    {{ ns.count }}
+                </h2>
+                <span>For your top career match</span>
+            </div>
+
+        </section>
+
+        <!-- Career Matches + Skill Gaps -->
+        <section class="dashboard-section" id="careers">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Career Matches & Skill Gap Analysis</h2>
+                    <p>
+                        Compare each recommended career with the skills
+                        you need to improve.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Column Headings -->
+            <div class="career-analysis-headings">
+                <h3>◎ Career Matches</h3>
+                <h3 id="skills">◇ Skill Gap Analysis</h3>
+            </div>
+
+            {% for career in recommendations %}
+
+            <!-- One row for each career -->
+            <div class="career-analysis-row"
+                 id="career-{{ loop.index }}">
+
+                <!-- LEFT: Career Match Card -->
+                <article class="career-card">
+
+                    <div class="career-top">
+                        <div>
+                            <span class="rank-label">
+                                {% if loop.index == 1 %}
+                                    TOP MATCH
+                                {% else %}
+                                    OPTION {{ loop.index }}
+                                {% endif %}
+                            </span>
+
+                            <h3>{{ career.name }}</h3>
+                        </div>
+
+                        <div class="score">
+                            {{ career.score }}%
+                            <small>match</small>
+                        </div>
+                    </div>
+
+                    <div class="progress-track">
+                        <div class="progress-fill"
+                             data-score="{{ career.score | int }}">
+                        </div>
+                    </div>
+
+                    <p class="career-description">
+                        {{ career.description }}
+                    </p>
+
+                    <a href="#career-{{ loop.index }}"
+                       class="details-link">
+                        View this career's skill gaps ↓
+                    </a>
+
+                </article>
+
+                <!-- RIGHT: Matching Career's Skill Gap Card -->
+                <article class="gap-card">
+
+                    <div class="gap-card-header">
+                        <div>
+                            <h3>{{ career.name }}</h3>
+                            <p>{{ career.score }}% compatibility</p>
+                        </div>
+                    </div>
+
+                    {% if career.gaps %}
+
+                        {% for gap in career.gaps %}
+
+                        <div class="skill-row">
+
+                            <div class="skill-info">
+                                <span>{{ gap.skill }}</span>
+
+                                <span>
+                                    {{ gap.current }}/5
+                                    → {{ gap.required }}/5
+                                </span>
+                            </div>
+
+                            <div class="progress-track skill-track">
+                                <div
+                                    class="skill-fill gap-{{ gap.level|lower }}"
+                                    data-current="{{ gap.current }}">
+                                </div>
+                            </div>
+
+                            <span class="gap-label gap-text-{{ gap.level|lower }}">
+                                {{ gap.level }} gap
+                            </span>
+
+                        </div>
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <p class="ready-message">
+                            ✓ Your current skill levels meet all the
+                            listed requirements for this career.
+                        </p>
+
+                    {% endif %}
+
+                </article>
+
+            </div>
+            <!-- End of one career row -->
+
+            {% endfor %}
+
+        </section>
+
+        <!-- Next Steps -->
+        <section class="action-panel">
+            <h2>Your Next Step 🚀</h2>
+
+            <p>
+                Start by improving the skills with the largest gaps
+                in your top-ranked career. Practise those skills
+                through small projects and reassess your progress.
+            </p>
+
+            <a href="/" class="primary-button">
+                Update My Skills
+            </a>
+        </section>
+
+        {% else %}
+
+        <!-- Empty State -->
+        <section class="action-panel">
+            <h2>No recommendations available</h2>
+
+            <p>Please complete the student assessment first.</p>
+
+            <a href="/" class="primary-button">
+                Start Assessment
+            </a>
+        </section>
+
+        {% endif %}
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            CareerWise · Know Your Skills. Discover Your Path.
+        </footer>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
