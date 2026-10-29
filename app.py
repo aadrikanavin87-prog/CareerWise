@@ -154,11 +154,10 @@ def recommend():
 
     print("Recommendations generated:", len(recommendations))
 
-    return render_template(
-        "result.html",
-        student=student,
-        recommendations=recommendations
-    )
+    return jsonify({
+    "student": student,
+    "recommendations": recommendations
+})
 
 
 if __name__ == "__main__":
