@@ -1,8 +1,15 @@
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 import json
 
 app = Flask(__name__)
+
+from flask_cors import CORS
+CORS(app, origins=[
+    # "http://localhost:5500",
+    "https://effervescent-croissant-8e5b3f.netlify.app"
+])
 
 
 def load_careers():
